@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Abbas - My Profile</title>
+    <style>
+        body {font-family: Arial, sans-serif; 
+            background-color: #f3d6d6;
+             color: #1e293b;
+            font-size: 1.2em;
+            margin: 20px;
+            text-align: center;}
+
+             h1 
+             {color: #085feb;  
+                font-size: 36px; 
+                margin-bottom: 20px;
+                padding: 10px;
+                border: 2px solid #085feb;
+                border-radius: 10px; 
+            
+            }
+             h2 {color: #1e293b; }
+             p {line-height: 1.6; }
+
+             .cards {
+                display: flex;
+                gap: 20px;
+                justify-content: center;
+                flex-wrap: wrap; 
+            }
+            .card {
+                background-color: #e0e0e0;
+                padding: 20px;
+                border-radius: 10px;
+                flex: 1;
+                min-width: 250px;
+            }
+
+            @media (max-width: 600px) {
+                body {
+                    margin: 10px;
+                    font-size: 1em;
+                }
+                h1 {
+                    font-size: 28px;
+                }
+                .cards {
+                    flex-direction: column;
+                    
+                }
+                .card {
+                    min-width: auto;
+                }
+            }
+            button {
+                background-color: #085feb;
+                color: white;
+                border: none;
+                padding: 12px 25px;
+                font-size: 18px;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+            button:hover {
+                background-color: #0645b5;
+                transform: scale(1.05);
+            }
+        
+    </style>
+</head>
+<body>
+    <h1>My profile</h1>
+    <div>
+        <h2>My Education</h2>
+        <p>I have a degree in Social Work and Sociology from the University of XYZ. I also have a teaching certification in Mathematics.</p>
+    </div>
+   
+        
+    <h2> Languages</h2>
+
+<ul>
+        <li>English</li>
+        <li>German</li>
+        <li>Arabic</li>
+</ul>
+    
+    <p>Name: Ahmed Abbas</p>
+
+    <p>Photo: <img src="profile.jpg" alt="Profile Photo"></p>
+    
+   <div class="cards">
+
+    <div class="card">
+        <h2>About me</h2>
+        <p>
+            Sozialarbeiter und Soziologe mit Erfahrung in Beratung
+            und Betreuung von Schülern sowie als Mathematiklehrer.
+            Zusätzlich praktische Erfahrung im IT-Support und in
+            der Reparatur von Hard- und Software.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Skills</h2>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Python</li>
+        </ul>
+    </div>
+
+</div>
+
+
+
+
+  <label for="name">Your name:</label>
+    <input type="text" id="name" placeholder="Enter your name">
+    <button onclick="sayHello()">Say Hello</button>
+    <p id="message">
+
+    </p>
+    <button onclick="showMessage()">Contact me</button>
+    <h2> Simple Calculator</h2>
+    <input type="number" id="number1" placeholder="First number">
+    <input type="number" id="number2" placeholder="Second number">    
+    <button onclick="calculate('add')">+</button>
+    <button onclick="calculate('subtract')">-</button>
+    <button onclick="calculate('multiply')">*</button>
+    <button onclick="calculate('divide')">/</button>
+    <p id="result"> </p>
+
+    <script>
+
+  function sayHello() {
+    let name = document.getElementById("name").value;
+
+    if (name === "") {
+        document.getElementById("message").textContent =
+            "Please enter your name";
+    } else {
+        document.getElementById("message").textContent =
+            "Hello, " + name + "!";
+    }
+}
+
+function showMessage() {
+    alert("You can contact me by email.");
+}
+
+function add(a, b) {
+    return a + b;
+}
+
+function subtract(a, b) {
+    return a - b;
+}
+
+function multiply(a, b) {
+    return a * b;
+}
+
+function divide(a, b) {
+    if (b === 0) {
+        return "Error: Division by zero";
+    }
+    return a / b;
+}
+
+function calculate(operation) {
+    let value1 = document.getElementById("number1").value;
+    let value2 = document.getElementById("number2").value;
+
+    if (value1 === "" || value2 === "") {
+        document.getElementById("result").textContent =
+            "Please enter both numbers!";
+        return;
+    }
+
+    let num1 = Number(value1);
+    let num2 = Number(value2);
+
+    let result;
+
+    if (operation === "add") {
+        result = add(num1, num2);
+    } else if (operation === "subtract") {
+        result = subtract(num1, num2);
+    } else if (operation === "multiply") {
+        result = multiply(num1, num2);
+    } else if (operation === "divide") {
+        result = divide(num1, num2);
+    }
+
+    document.getElementById("result").textContent =
+        "Result: " + result;
+
+    if (num1 > 0 && num2 > 0) {
+        console.log("Both numbers are positive");
+    }
+  if (num1 > num2) {
+        console.log("Number 1 is greater than Number 2");
+    } else if (num1 < num2) {
+        console.log("Number 2 is greater");
+    } else {
+        console.log("Both numbers are equal");
+    }
+
+    if (num1 === num2) {
+        console.log("The numbers are exactly equal");
+    }
+
+    if (num1 !== num2) {
+        console.log("The numbers are different");
+    }
+ 
+}
+   for (let i = 1; i <= 10; i++) {
+    console.log(i);
+}
+let total = 0;
+for (let i = 1; i <= 10; i++) {
+    total = total +i;
+}
+console.log(total);
+let numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+numbers.push(110);
+numbers.push(120);
+numbers.push(130);
+numbers.pop();
+numbers.shift();
+numbers.unshift(5);
+console.log("Number of items:", numbers.length);
+console.log(numbers.includes(50));
+console.log(numbers.includes(999));
+if (numbers.includes(50)) {
+    console.log("50 is in the array");
+}
+let foundNumber = numbers.find(function(number) {
+    return number > 50;
+});
+let bigNumbers = numbers.filter(function(number) {
+    return number > 50;
+});
+console.log("Numbers greater than 50:", bigNumbers);
+let doubleNumbers = numbers.map(function(number) {
+    return number * 2;
+});
+
+console.log("Doubled numbers:", doubleNumbers);
+console.log("First number greater than 50:", foundNumber);
+console.log(numbers);
+for (let i = 0; i < numbers.length; i++) {
+    console.log(numbers[i]);
+} 
+if (numbers.includes(999)) { 
+    console.log("999 is in the array");
+}else {
+    console.log("999 is Not in the array");
+}
+let totalNumbers = 0;
+
+for (let i = 0; i < numbers.length; i++) {
+    totalNumbers = totalNumbers + numbers[i];
+}
+
+console.log(totalNumbers);
+
+
+
+let largeNumbers = numbers.filter(number => number > 50);
+console.log(largeNumbers);
+
+let squaredNumbers = numbers.map(number => number * number);
+console.log(squaredNumbers);
+
+numbers.forEach(number => {
+    if (number < 50) {
+        console.log(number);
+    }
+});
+
+let sum = 0;
+
+numbers.forEach(number => {
+    sum = sum + number;
+});
+
+console.log("Total:", sum);
+
+let maxNumber = numbers[0];
+
+numbers.forEach(number => {
+    if (number > maxNumber) {
+        maxNumber = number;
+    }
+});
+console.log("Maximum number:", maxNumber);
+
+
+let minNumber = numbers[0];
+
+numbers.forEach(number => {
+    if (number < minNumber) {
+        minNumber = number;
+    }
+});
+
+console.log("Minimum number:", minNumber);
+
+
+
+let count = 0;
+
+numbers.forEach(number => {
+    if (number > 50) {
+        count++;
+    }
+});
+
+console.log("Numbers greater than 50:", count);
+
+
+let oddCount = 0;
+
+numbers.forEach(number => {
+    if (number % 2 !==0) {
+        oddCount++;
+        console.log("Odd number:", number);
+    }
+});
+
+console.log("Total odd numbers:", oddCount);
+
+
+let oddSum = 0;
+
+numbers.forEach(number => {
+    if (number % 2 !== 0) {
+        oddSum = oddSum + number;
+    }
+});
+
+console.log("Sum of odd numbers:", oddSum);
+
+
+let evenSum = 0;
+
+numbers.forEach(number => {
+    if (number % 2 === 0) {
+        evenSum = evenSum + number;
+    }
+});
+
+console.log("Sum of even numbers:", evenSum);
+
+
+let evenNumbers = numbers.filter(number => {
+    return number % 2 === 0;
+});
+
+console.log("Even numbers:", evenNumbers);
+
+
+console.log("Number of even numbers:", evenNumbers.length);
+
+
+let doubleNumbers2 = numbers.map(number => {
+    return number * 2;
+});
+
+console.log("Double numbers:", doubleNumbers2);
+
+
+let addedNumbers = numbers.map(number => {
+    return number + 10;
+});
+
+console.log("Numbers plus 10:", addedNumbers);
+
+
+let reducedNumbers = numbers.map(number => {
+    return number - 10;
+});
+
+console.log("Numbers minus 10:", reducedNumbers);
+
+let filteredNumbers = numbers.filter(number => {
+    return number > 50;
+});
+
+console.log("Filtered numbers:", filteredNumbers);
+
+
+function checkNumber(number) {
+    if (number % 2 === 0) {
+        return "Even";
+    } else {
+        return "Odd";
+    }
+}
+
+console.log(checkNumber(8));
+console.log(checkNumber(5));
+console.log(checkNumber(12));
+
+let lesson53Numbers = [10, 25, 40, 55, 70, 85];
+
+let bigNumbers53 = lesson53Numbers.filter(function(number) {
+    return number > 50;
+});
+
+console.log(bigNumbers53);
+
+let lesson54Numbers = [10, 20, 30, 40, 50, 60];
+
+let result54 = lesson54Numbers
+    .filter(number => number >= 30)
+    .map(number => number * 2);
+
+console.log(result54);
+
+let age60 = 25;
+let hasTicket60 = true;
+
+if (age60 >= 18 && hasTicket60) {
+    console.log("You can enter!");
+} else {
+    console.log("You cannot enter!");
+}
+
+let username61 = "Ahmed";
+let password61 = "1234";
+
+if (username61 === "Ahmed" && password61 === "1234") {
+    console.log("Login successful!");
+} else {
+    console.log("Wrong username or password!");
+}
+
+ </script>
+</body>
+</html>
